@@ -4,7 +4,7 @@
   "description": "Simple to get api json e621",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "build": "npm install"
   },
   "keywords": [],
