@@ -13,15 +13,16 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 const PORT = 8000;
+const REVERSE_PROXY = eval(true);
 const ALLOW = [
-  "https://e621api.rizzdev.my.id",
-  "https://e631api.rizzly.biz.id",
-  "https://e621api-rizzly.cyclic.app",
+  "e621api.rizzdev.my.id",
+  "e631api.rizzly.biz.id",
+  "e621api-rizzly.cyclic.app",
 ];
 
 app.use((req, res, next) => {
   res.locals.req = req;
-  if (!ALLOW.includes(req.hostname))
+  if (REVERSE_PROXY && !ALLOW.includes(req.hostname))
     return res
       .status(403)
       .send(`<center><h1>Sorry, Access Denied</h1></center>`);
