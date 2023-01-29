@@ -56,7 +56,12 @@ app.get("/random", async (req, res) => {
   }
 });
 
+//! Fallback Middleware
+app.use((req, res) => {
+  res.status(404).send(`<center><h1>Internal Server Error</h1></center>`);
+});
 
+//Configure App
 app.listen(PORT, () => {
   console.log('Server running on http://localhost:'+PORT');
 });
