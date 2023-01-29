@@ -15,8 +15,6 @@ app.use(express.json());
 const PORT = 8000;
 const REVERSE_PROXY = eval(true);
 const ALLOW = [
-  "e621api.rizzdev.my.id",
-  "e631api.rizzly.biz.id",
   "e621api-rizzly.cyclic.app",
 ];
 
