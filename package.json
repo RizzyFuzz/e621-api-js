@@ -8,8 +8,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "start": "node server.js && npm run prettier",
-    "build": "npm install",
+    "start": "node server.js",
+    "build": "npm install;npm run prettier",
     "prettier": "prettier --write '**/*.{md,js,json}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
