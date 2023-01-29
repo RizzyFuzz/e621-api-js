@@ -1,7 +1,7 @@
 const express = require("express");
 const logger = require("morgan");
-const firstApi = require("./firstApi.js");
-const randomApi = require("./randomApi.js");
+const firstApi = require("./lib/firstApi.js");
+const randomApi = require("./lib/randomApi.js");
 
 const app = express();
 app.use(logger("dev"));
