@@ -6,14 +6,13 @@ const randomApi = require("./randomApi.js");
 const app = express();
 app.use(logger("dev"));
 app.set("json spaces", 2);
-app.set("trust proxy", 1);
+app.set("trust proxy", true);
 app.use(express.urlencoded({
   extended: true
 }));
 app.use(express.json());
 
 const PORT = 8000;
-const REVERSE_PROXY = eval(true);
 const ALLOW = [
   "https://e621api.rizzdev.my.id",
   "https://e631api.rizzly.biz.id",
@@ -22,7 +21,7 @@ const ALLOW = [
 
 app.use((req, res, next) => {
   res.locals.req = req;
-  if (REVERSE_PROXY && !ALLOW.includes(req.hostname))
+  if (!ALLOW.includes(req.hostname))
     return res
       .status(403)
       .send(`<center><h1>Sorry, Access Denied</h1></center>`);
