@@ -3,15 +3,20 @@
   "version": "1.0.0",
   "description": "Simple to get api json e621.net",
   "depecrated": false,
-  "main": "index.js"
+  "main": "index.js",
   "directories": {
-    "lib": "lib",
+    "lib": "lib"
   },
   "scripts": {
     "start": "node server.js",
     "build": "npm install"
   },
-  "keywords": [],
+  "keywords": [
+    "e621.net",
+    "e621.net API",
+    "e621-api-js",
+    "simple api e621"
+  ],
   "homepage": "",
   "author": {
     "name": "RizzyFuzz"
