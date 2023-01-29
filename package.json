@@ -1,10 +1,11 @@
 {
   "name": "e621api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple to get api json e621",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "npm install"
   },
   "keywords": [],
   "homepage": "",
