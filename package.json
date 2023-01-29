@@ -9,8 +9,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "build": "npm install;npm run prettier",
-    "prettier": "prettier --write '**/*.{md,js,json}'",
+    "build": "npm install", 
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -34,7 +33,6 @@
   "dependencies": {
     "axios": "^1.2.6",
     "express": "^4.18.2",
-    "prettier": "^2.8.1",
     "morgan": "^1.10.0"
   }
 }
