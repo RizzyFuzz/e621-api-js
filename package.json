@@ -1,8 +1,12 @@
 {
   "name": "e621api",
   "version": "1.0.0",
-  "description": "Simple to get api json e621",
+  "description": "Simple to get api json e621.net",
+  "depecrated": false,
   "main": "index.js",
+  "directories": {
+    "lib": "lib",
+  },
   "scripts": {
     "start": "node server.js",
     "build": "npm install"
@@ -16,7 +20,7 @@
     "type": "git",
     "url": ""
   },
-  "license": "GPL-3.0-or-later",
+  "license": "",
   "dependencies": {
     "axios": "^1.2.6",
     "express": "^4.18.2",
