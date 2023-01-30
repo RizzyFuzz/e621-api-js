@@ -43,7 +43,9 @@ const api = require("e621-api-js");
 ```js
 const result = await api.getAll.("oouyuki_benten","ur username e621.net","ur apikey e621.net");
 console.log(result); 
-/*
+```
+> result
+```json
 {
       author: 'RizzyFuzz',
       post_id: 3830421,
@@ -57,7 +59,7 @@ console.log(result);
       result: [Object]
     }
    More 500 items...
-*/
+
 ```
 
 ## Get Random Data
@@ -65,7 +67,9 @@ console.log(result);
 ```js
 const result = await api.getRandom.("oouyuki_benten","ur username e621.net","ur apikey e621.net");
 console.log(result); 
-/*
+```
+> result 
+```json
 {
   author: 'RizzyFuzz',
   post_id: 1574324,
@@ -97,5 +101,5 @@ console.log(result);
     }
   }
 }
-*/
+
 ```
