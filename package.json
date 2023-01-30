@@ -1,5 +1,5 @@
 {
-  "name": "e621api",
+  "name": "e621-api-js",
   "version": "1.0.0",
   "description": "Simple to get api json e621.net",
   "depecrated": false,
