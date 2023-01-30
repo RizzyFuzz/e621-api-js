@@ -38,13 +38,13 @@ const api = require("e621-api-js");
 
 # Docs
 
-## Get All Data
+## Get All Data (MODULE)
 
 ```js
 const result = await api.e621.getAll.("oouyuki_benten","ur username e621.net","ur apikey e621.net");
 console.log(result); 
 ```
-> result
+> result:
 ```bash
 {    
     {
@@ -63,13 +63,13 @@ console.log(result);
 }
 ```
 
-## Get Random Data
+## Get Random Data (MODULE)
 
 ```js
 const result = await api.e621.getRandom.("oouyuki_benten","ur username e621.net","ur apikey e621.net");
 console.log(result); 
 ```
-> result 
+> result:
 ```bash
 {
   author: 'RizzyFuzz',
@@ -105,7 +105,7 @@ console.log(result);
 
 ```
 
-## Get All Data API
+## Get All Data (API)
 
 ```js
 const fetch = require('node-fetch');
@@ -115,7 +115,7 @@ return fetch(url).then(a => a.json())
 cosnt thisUrl = "https://e621api-rizzly.cyclic.app/api/all?tags=oouyuki_benten"
 console.log(await getJsonData(thisUrl)); 
 ```
-> result
+> result:
 ```bash
 {
   meta: {
@@ -136,7 +136,7 @@ console.log(await getJsonData(thisUrl));
 }
 ```
 
-## Get Random Data API
+## Get Random Data (API)
 
 ```js
 const fetch = require('node-fetch');
@@ -146,7 +146,7 @@ return fetch(url).then(a => a.json())
 cosnt thisUrl = "https://e621api-rizzly.cyclic.app/api/random?tags=oouyuki_benten"
 console.log(await getJsonData(thisUrl)); 
 ```
-> result
+> result:
 ```bash
 {
   meta: {
