@@ -4,9 +4,7 @@ const firstApi = require("./lib/firstApi.js");
 const randomApi = require("./lib/randomApi.js");
 const cors = require('cors');
 
-
 const app = express();
-app.use(cors());
 app.use(logger('dev'));
 app.set("json spaces", 2);
 app.set("trust proxy", true);
