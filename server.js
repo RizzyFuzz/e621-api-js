@@ -2,7 +2,7 @@ const express = require("express");
 const logger = require("morgan");
 const firstApi = require("./lib/firstApi.js");
 const randomApi = require("./lib/randomApi.js");
-const cors = require('cors');
+
 
 const app = express();
 app.use(logger('dev'));
