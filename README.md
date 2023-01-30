@@ -28,12 +28,12 @@ please create [Issues](https://github.com/rizzlydev/e621-api-js/issues/new)
 
 ## Npm
 
-`npm i e621-api-js`
+`npm i e621api`
 
 # Require
 
 ```js
-const api = require("e621-api-js");
+const api = require("e621api");
 ```
 
 # Docs
