@@ -1,0 +1,27 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "e621.net Unofficial Web API For Free",
+      "description": "API ini menyediakan akses ke data e621.net secara tidak resmi. Pengguna dapat mengambil informasi tentang artist, species, dan character secara gratis melalui API ini.",
+      "version": "1.0.0"
+    },
+    "host": "e621api-rizzly.cyclic.app",
+    "basePath": "/",
+    "paths":  { 
+    "/api/all": {
+        "get": {
+          "summary": "Mencari artist/tags dengan query tertentu",
+          "parameters": [
+            {
+              "name": "tags",
+              "in": "query",
+              "description": "Query pencarian",
+              "required": true,
+              "type": "string"
+            }
+          ],
+        }
+      },
+
+    }
+}
