@@ -1,4 +1,4 @@
-# Unofficiall e621.net API
+# Unofficiall e621.net MODULE & API Library
 <p align="center">
 <a target="_blank" href="https://github.com/rizzlydev"><img src="https://avatars.githubusercontent.com/rizzlydev?s=400" alt="" width="169" /></a>
 </p>
