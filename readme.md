@@ -45,7 +45,7 @@ const result = await api.getAll.("oouyuki_benten","ur username e621.net","ur api
 console.log(result); 
 ```
 > result
-```json
+```bash
 {
       author: 'RizzyFuzz',
       post_id: 3830421,
@@ -69,7 +69,7 @@ const result = await api.getRandom.("oouyuki_benten","ur username e621.net","ur 
 console.log(result); 
 ```
 > result 
-```json
+```bash
 {
   author: 'RizzyFuzz',
   post_id: 1574324,
