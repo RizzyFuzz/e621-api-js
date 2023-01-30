@@ -104,3 +104,69 @@ console.log(result);
 }
 
 ```
+
+## Get All Data API
+
+```js
+const fetch = require('node-fetch');
+async function getJsonData(url) {
+return fetch(url).then(a => a.json())
+}
+cosnt thisUrl = "https://e621api-rizzly.cyclic.app/api/all?tags=oouyuki_benten"
+console.log(await getJsonData(thisUrl)); 
+```
+> result
+```bash
+{
+  meta: {
+      author: 'RizzyFuzz',
+      post_id: 3830421,
+      found: true,
+      result: [Object]
+    },
+    {
+      author: 'RizzyFuzz',
+      post_id: 3830385,
+      found: true,
+      result: [Object]
+    }
+   More 500 items...
+    },
+    status: 200
+}
+```
+
+## Get Random Data API
+
+```js
+const fetch = require('node-fetch');
+async function getJsonData(url) {
+return fetch(url).then(a => a.json())
+}
+cosnt thisUrl = "https://e621api-rizzly.cyclic.app/api/random?tags=oouyuki_benten"
+console.log(await getJsonData(thisUrl)); 
+```
+> result
+```bash
+{
+  meta: {
+    author: 'RizzyFuzz',
+    post_id: 2893476,
+    found: true,
+    result: {
+      artist: [Array],
+      species: [Array],
+      character: [Array],
+      copyright: [],
+      lore: [],
+      meta: [],
+      score: [Object],
+      rating: 'e',
+      fav_count: 564,
+      info: [Object],
+      static: [Object]
+    }
+  },
+  status: 200
+}
+```
