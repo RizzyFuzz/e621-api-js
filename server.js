@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 });
 
 
-app.get('/', (req, res) => res.json({ status: 200 , message: "Hello World!"});));
+app.get('/', (req, res) => res.json({ status: 200 , message: "Hello World!"}));
   
 //api getter e621.net
 app.get("/api/all", async (req, res) => {
@@ -47,7 +47,7 @@ app.get("/api/all", async (req, res) => {
   }
 });
 
-app.get("/random", async (req, res) => {
+app.get("/api/random", async (req, res) => {
   let tags = req.query.tags;
   if (!tags)
     return res.status(400).json({ creator: "RizzyFuzz", status: 400, error: "No Artist/Tags Provided" });
