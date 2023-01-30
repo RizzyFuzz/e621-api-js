@@ -41,12 +41,13 @@ const api = require("e621-api-js");
 ## Get All Data
 
 ```js
-const result = await api.getAll.("oouyuki_benten","ur username e621.net","ur apikey e621.net");
+const result = await api.e621.getAll.("oouyuki_benten","ur username e621.net","ur apikey e621.net");
 console.log(result); 
 ```
 > result
 ```bash
-{
+{    
+    {
       author: 'RizzyFuzz',
       post_id: 3830421,
       found: true,
@@ -59,13 +60,13 @@ console.log(result);
       result: [Object]
     }
    More 500 items...
-
+}
 ```
 
 ## Get Random Data
 
 ```js
-const result = await api.getRandom.("oouyuki_benten","ur username e621.net","ur apikey e621.net");
+const result = await api.e621.getRandom.("oouyuki_benten","ur username e621.net","ur apikey e621.net");
 console.log(result); 
 ```
 > result 
