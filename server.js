@@ -60,8 +60,11 @@ app.get("/api/random", async (req, res) => {
 });
 
 //! Fallback Middleware
-app.use((req, res) => {
-  res.status(404).send(`<center><h1>Internal Server Error</h1></center>`);
+app.all('*', async (req, res) => {
+   res.status(404).json({
+            status: 404,
+            error: 'Page you are looking for is not found'
+        })
 });
 
 //Configure App
