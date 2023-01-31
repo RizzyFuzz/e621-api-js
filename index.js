@@ -1,3 +1,5 @@
+'use strict';
+
 const firstApi = require("./lib/firstApi.js");
 const randomApi = require("./lib/randomApi.js");
 
