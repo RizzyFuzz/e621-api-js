@@ -1,0 +1,171 @@
+<html>
+	<head>
+    	<title>Unofficial API E621.NET</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="hover-min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
+        <style>
+        	html {
+            	overflow-x: hidden;
+            }
+        	
+        	.container {
+            	min-height: 5%;
+                width: auto;
+            }
+            
+            body {
+            	display: flex;
+            	min-height: 100vh;
+            	flex-direction: column;
+                background-color: #000b1f;
+            }
+            
+            .nav-wrapper, .page-footer {
+            	background-color: #001843;
+            }
+            
+            .materialboxed {
+            	align-self: center;
+                margin-left: 0.5%;
+                margin-right: 0.5%;
+                margin-top: 10%;
+                margin-bottom: 10%;
+                -webkit-box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -7px rgba(0,0,0,0.2)!important;
+                box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -7px rgba(0,0,0,0.2)!important;
+            }
+            
+            .materialboxed:hover {
+            	opacity: 1!important;
+            }
+            
+            .brand-logo {
+            	margin-left: 1%;
+                width: 50%;
+                text-align: center;
+            }
+            
+            .container {
+            	flex: 1 0 auto;
+                display: flex;
+            }
+            
+            .material-placeholder {
+            	align-self: center;
+            }
+            
+            .page-footer {
+            	flex-shrink: 0;
+            }
+            
+            .btn-floating {
+              position: fixed;
+              bottom: 25px;
+              right: 25px;
+            }
+            
+            #nav-mobile {
+            	display: flex;
+                align-items: center;
+            	height: 100%;
+                margin-right: 15%;
+            }
+            
+            #nav-mobile > li, #nav-mobile > li > a {
+            	margin-top: auto;
+                margin-bottom: auto;
+                height: 100%;
+                vertical-align: center;
+                text-align: center;
+                display: flex;
+                align-items: center;
+            }
+        </style>
+	</head>
+    
+    <body>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">E621.NET API</a>
+        <!--  <ul id="nav-mobile" class="right hide-on-med-and-down">
+             <li><a href="#">Components</a></li>
+            <li><a href="#">JavaScript</a></li>
+          </ul>-->
+        </div>
+      </nav>
+      
+      <div class="container">
+      	<br>
+        <br>
+      	
+        <br>
+        <br>
+      </div>
+      
+      <script>
+      	$.ajax({
+            url: `https://${window.location.host}/api/url/random?tags=kemono`,
+            global: true,
+            type: 'GET',
+            async: false,
+            success: function (response) {
+            	$(".container").append(`<img class="materialboxed z-depth-4 responsive-img hvr-bob" width="650" alt="kemono" src="${response.url}" />`);
+            }
+        });
+      </script>
+      
+ <a href="." class="btn-floating btn-large waves-effect waves-light blue hvr-icon-spin"><i class="material-icons hvr-icon" style="font-size: 30px;">loop</i></a>
+      
+      <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col l8 s12">
+              <h5 class="white-text"></h5>
+              <p class="grey-text text-lighten-4">This website was made for fun only, and is heavily inspired to the website <a href="https://nekos.life/">nekos.life</a>. <br>The owner and the developer of this project is RizzyFuzz, which you can contact at rizzowohq@gmail.com.</p>
+            </div>
+            <div class="col l2 offset-l2 s12">
+              <h5 class="white-text">Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="/api/url/random?tags=shota">Random API Image Shota</a></li>
+                <li><a class="grey-text text-lighten-3" href="/api/all?tags=">All API Metadata Artist</a></li>
+                 <li><a class="grey-text text-lighten-3" href="/api/random?tags=">Random API Metadata Artist</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+      <script>
+	setInterval(async () => {
+         $.ajax({
+            url: `https://${window.location.host}/api/url/random?tags=kemono`,
+            global: true,
+            type: 'GET',
+            async: false,
+            success: function (response) {
+            	$("body > div > div > img").attr("src", response.url);
+            }
+        });
+	}, 6000)
+        $(document).ready(function(){
+          $('.materialboxed').materialbox();
+        });
+        
+ 
+        $(document).keydown(function(e) {
+            if (e.which == 32) {
+            	location.reload();
+                return false;
+            }
+        });
+      </script>
+    </body>
+</html>
