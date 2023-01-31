@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Simple to get api json e621.net",
   "depecrated": false,
-  "main": "index.js",
+  "main": "server.js",
   "directories": {
     "lib": "lib"
   },
