@@ -7,6 +7,7 @@ const randomApi = require("./lib/randomApi.js");
 const app = express();
 app.use(logger('dev'));
 app.set("json spaces", 2);
+app.enable('trust proxy');
 app.set("trust proxy", true);
 app.use(express.urlencoded({
   extended: true
