@@ -6,8 +6,7 @@ class e621Api {
   constructor({ clientUsername, clientApikey }) {
     this.clientUsername = clientUsername;
     this.clientApikey = clientApikey;
-    this.version = require("./package.json").version;
-    this.author = require("./package.json").author;
+    this.Display = Display
   }
 
  async getAll(tags) {
