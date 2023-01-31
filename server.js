@@ -66,7 +66,7 @@ app.get("/api/url/random", async (req, res) => {
   try {
     let meta = await randomApi(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
     let { url } = await meta.result.static
-    res.json({ url });
+    res.json({ status: 200, url });
   } catch (e) {
     console.log(e);
     res.status(500).json({ status: 500, error: e.message });
