@@ -19,59 +19,7 @@ If there are bugs,<br>
 please create [Issues](https://github.com/rizzlydev/e621-api-js/issues/new)
 
 # Docs
-## Get All Data (MODULE)
 
-```js
-const e621 = new e621Api({ clientUsername: 'username', clientApikey: 'apikey' });
-const result = await e621.getAll("oouyuki_benten"); 
-console.log(result); 
-```
-> result:
-```bash
-{    
-    {
-      author: 'RizzyFuzz',
-      post_id: 3830421,
-      found: true,
-      result: [Object]
-    },
-    {
-      author: 'RizzyFuzz',
-      post_id: 3830385,
-      found: true,
-      result: [Object]
-    }
-   More 500 items...
-}
-```
-
-## Get Random Data (MODULE)
-
-```js
-const e621 = new e621Api({ clientUsername: 'username', clientApikey: 'apikey' });
-const result = await e621.getAll("oouyuki_benten"); 
-console.log(result); 
-```
-> result:
-```bash
-{
-  author: 'RizzyFuzz',
-  post_id: 1574324,
-  found: true,
-  result: {
-    artist: [ 'oouyuki_benten' ],
-    species: [ 'bear', 'mammal', 'monster' ],
-    character: [],
-    copyright: [],
-    lore: [],
-    meta: [ '5:6' ],
-    score: { up: 27, down: -2, total: 25 },
-    rating: 'e',
-    fav_count: 103,
-    info: {
-      width: 700,
-      height: 840,
-      ext: 'jpg',
 
 ## Get All Data (API)
 
