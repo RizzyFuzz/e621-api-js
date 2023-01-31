@@ -33,7 +33,7 @@ please create [Issues](https://github.com/rizzlydev/e621-api-js/issues/new)
 # Require
 
 ```js
-const api = require("e621api");
+const e621Api = require("e621-api-js");
 ```
 
 # Docs
@@ -41,7 +41,8 @@ const api = require("e621api");
 ## Get All Data (MODULE)
 
 ```js
-const result = await api.e621.getAll.("oouyuki_benten","ur username e621.net","ur apikey e621.net");
+const e621 = new e621Api({ clientUsername: 'username', clientApikey: 'apikey' });
+const result = await e621.getAll("oouyuki_benten"); 
 console.log(result); 
 ```
 > result:
@@ -66,7 +67,8 @@ console.log(result);
 ## Get Random Data (MODULE)
 
 ```js
-const result = await api.e621.getRandom.("oouyuki_benten","ur username e621.net","ur apikey e621.net");
+const e621 = new e621Api({ clientUsername: 'username', clientApikey: 'apikey' });
+const result = await e621.getAll("oouyuki_benten"); 
 console.log(result); 
 ```
 > result:
