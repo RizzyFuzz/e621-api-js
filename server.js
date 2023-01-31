@@ -12,6 +12,7 @@ app.set("trust proxy", true);
 app.use(express.urlencoded({
   extended: true
 }));
+app.use(express.static(path.join(__dirname + "/public")));
 app.use(express.json());
 
 const PORT = 8000;
@@ -30,8 +31,7 @@ app.use((req, res, next) => {
 });
 
 
-app.get('/', (req, res) => res.json({ status: 200 , message: "Hello World!"}));
-  
+
 //api getter e621.net
 app.get("/api/all", async (req, res) => {
   let tags = req.query.tags;
