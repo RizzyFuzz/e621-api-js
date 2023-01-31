@@ -4,7 +4,7 @@ const firstApi = require("./lib/firstApi.js");
 const randomApi = require("./lib/randomApi.js");
 var cors = require('cors');
 const path = require('path');
-
+const PORT = 8000;
 
 const app = express();
 app.use(logger('dev'));
@@ -16,10 +16,14 @@ app.use(express.urlencoded({
 }));
 app.use(express.static(path.join(__dirname + "/public")));
 app.use(express.json());
-app.options('*', cors()) // include before other routes
+var corsOptions = {
+    origin: 'http://localhost:'+PORT,
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions));
 
 
-const PORT = 8000;
+
 const REVERSE_PROXY = eval(true);
 const ALLOW = [
   "e621api-rizzly.cyclic.app",
