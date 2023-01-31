@@ -15,6 +15,8 @@ app.use(express.urlencoded({
 }));
 app.use(express.static(path.join(__dirname + "/public")));
 app.use(express.json());
+app.options('*', cors()) // include before other routes
+
 
 const PORT = 8000;
 const REVERSE_PROXY = eval(true);
