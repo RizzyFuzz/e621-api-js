@@ -10,11 +10,11 @@ class e621Api {
     this.author = require("./package.json").author;
   }
 
-  getAll(tags) {
+ async function getAll(tags) {
     return await firstApi(tags, this.clientUsername, this.clientApikey);
   }
 
-  getRandom(tags) {
+  async function getRandom(tags) {
     return await  randomApi(tags, this.clientUsername, this.clientApikey);
   }
 
