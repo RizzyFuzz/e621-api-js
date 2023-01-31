@@ -1,13 +1,29 @@
-const { version, author } = require("./package.json");
 
-const firstApi = require("./lib/firstApi.js");
-const randomApi = require("./lib/randomApi.js");
+class e621Client {
+  constructor({ clientUsername, clientApikey }) {
+    this.clientUsername = clientUsername;
+    this.clientApikey = clientApikey;
+    this.version = require("./package.json").version;
+    this.author = require("./package.json").author;
+  }
 
-module.exports = {
-  version,
-  author,
-  e621: {
-    getAll: firstApi,
-    getRandom: randomApi,
-    },
-};
+  getAll(tags) {
+    return firstApi(tags, this.clientUsername, this.clientApikey);
+  }
+
+  getRandom(tags) {
+    return randomApi(tags, this.clientUsername, this.clientApikey);
+  }
+
+  display() {
+    return {
+      version: this.version,
+      author: this.author,
+      get: {
+        getAll: this.getAll.bind(this),
+        getRandom: this.getRandom.bind(this),
+      },
+    };
+  }
+}
+
