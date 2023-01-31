@@ -1,5 +1,8 @@
+const firstApi = require("./lib/firstApi.js");
+const randomApi = require("./lib/randomApi.js");
 
-class e621Client {
+
+class e621Api {
   constructor({ clientUsername, clientApikey }) {
     this.clientUsername = clientUsername;
     this.clientApikey = clientApikey;
@@ -8,22 +11,23 @@ class e621Client {
   }
 
   getAll(tags) {
-    return firstApi(tags, this.clientUsername, this.clientApikey);
+    return await firstApi(tags, this.clientUsername, this.clientApikey);
   }
 
   getRandom(tags) {
-    return randomApi(tags, this.clientUsername, this.clientApikey);
+    return await  randomApi(tags, this.clientUsername, this.clientApikey);
   }
 
-  display() {
+  Client() {
     return {
       version: this.version,
       author: this.author,
       get: {
-        getAll: this.getAll.bind(this),
-        getRandom: this.getRandom.bind(this),
+        getAll: this.getAll.bind(),
+        getRandom: this.getRandom.bind(),
       },
     };
   }
 }
 
+module.exports = e621Api;
