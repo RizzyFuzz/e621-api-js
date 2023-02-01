@@ -35,6 +35,7 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "ssl-express-www": "^3.0.7",
+    "caliph-api": "github:caliphdev/caliph-api",
     "morgan": "^1.10.0"
   }
 }
