@@ -4,6 +4,7 @@ const firstApi = require("./lib/firstApi.js");
 const randomApi = require("./lib/randomApi.js");
 var cors = require('cors');
 const path = require('path');
+const chalk = require("chalk");
 const PORT = 8000;
 
 const app = express();
@@ -22,7 +23,36 @@ var corsOptions = {
 }
 app.use(cors(corsOptions));
 
+function formatBytes(bytes, decimals = 2) {
+    if (bytes === 0) return '0 Bytes';
 
+    const k = 1024;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+} 
+function status(code) {
+if (code > 400 && code < 499) return chalk.yellow(code)
+if (code > 500 && code < 599) return chalk.red(code)
+if (code > 299 && code < 399) return chalk.cyan(code)
+if (code > 199) return chalk.green(code)
+return chalk.yellow(code)
+}
+
+app.use(logger(function (tokens, req, res) {
+  return [
+    req.ip,
+    // req.headers['user-agent'],
+    tokens.method(req, res),
+    tokens.url(req, res),
+    status(tokens.status(req, res)),
+    tokens['response-time'](req, res)+ ' ms',
+    formatBytes(isNaN(tokens.res(req, res, 'content-length')) ? 0 : tokens.res(req, res, 'content-length')), 
+  ].join(' | ')
+}))
 
 const REVERSE_PROXY = eval(true);
 const ALLOW = [
@@ -38,6 +68,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(function (err, req, res, next) {
+    console.error(err.stack)
+    res.status(500).send('Something broke!')
+})
 
 
 //api getter e621.net
