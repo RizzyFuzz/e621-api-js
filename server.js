@@ -97,7 +97,8 @@ app.get("/api/random", async (req, res) => {
   if (!tags)
     return res.status(400).json({ creator: "RizzyFuzz", status: 400, error: "No Artist/Tags Provided" });
   try {
-    let meta = await randomApi(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
+    let result = await firstApi(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
+    const meta = result[Math.floor(Math.random() * result.length)];
     res.json({ meta, status: 200 });
   } catch (e) {
     console.log(e);
