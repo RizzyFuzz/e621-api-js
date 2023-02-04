@@ -1,7 +1,6 @@
 const express = require("express");
 const logger = require("morgan");
 const firstApi = require("./lib/firstApi.js");
-const randomApi = require("./lib/randomApi.js");
 var cors = require('cors');
 const path = require('path');
 const chalk = require("chalk");
@@ -81,8 +80,8 @@ app.get("/api/all", async (req, res) => {
   if (!tags)
     return res.status(400).json({ creator: "RizzyFuzz", status: 400, error: "No Artist/Tags Provided" });
   try {
-    let meta = await firstApi(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
-    res.json({ meta, status: 200 });
+    let result = await firstApi(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
+    res.json({ meta: result, status: 200 });
   } catch (e) {
     console.log(e);
     res.status(500).json({ 
@@ -109,18 +108,7 @@ app.get("/api/random", async (req, res) => {
   }
 });
 
-app.get("/api/url/random", async (req, res) => {
-  let tags = req.query.tags;
-  if (!tags)
-    return res.status(400).json({ creator: "RizzyFuzz", status: 400, error: "No Artist/Tags Provided" });
-  try {
-    let meta = await randomApi(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
-    res.json({ status: 200, meta });
-  } catch (e) {
-    console.log(e);
-    res.status(500).json({ status: 500, error: e.message });
-  }
-});
+
 
 //! Fallback Middleware
 app.all('*', async (req, res) => {
