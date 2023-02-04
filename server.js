@@ -44,7 +44,6 @@ return chalk.yellow(code)
 app.use(logger(function (tokens, req, res) {
   return [
     req.ip,
-    // req.headers['user-agent'],
     tokens.method(req, res),
     tokens.url(req, res),
     status(tokens.status(req, res)),
@@ -86,7 +85,10 @@ app.get("/api/all", async (req, res) => {
     res.json({ meta, status: 200 });
   } catch (e) {
     console.log(e);
-    res.status(500).json({ status: 500, error: e.message });
+    res.status(500).json({ 
+      status: 500, 
+      error: e.message
+    });
   }
 });
 
@@ -99,7 +101,10 @@ app.get("/api/random", async (req, res) => {
     res.json({ meta, status: 200 });
   } catch (e) {
     console.log(e);
-    res.status(500).json({ status: 500, error: e.message });
+    res.status(500).json({ 
+      status: 500, 
+      error: e.message 
+    });
   }
 });
 
@@ -109,8 +114,7 @@ app.get("/api/url/random", async (req, res) => {
     return res.status(400).json({ creator: "RizzyFuzz", status: 400, error: "No Artist/Tags Provided" });
   try {
     let meta = await randomApi(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
-    let { url } = await meta.result.static
-    res.json({ status: 200, url });
+    res.json({ status: 200, meta });
   } catch (e) {
     console.log(e);
     res.status(500).json({ status: 500, error: e.message });
