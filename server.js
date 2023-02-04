@@ -15,7 +15,6 @@ app.set("trust proxy", true);
 app.use(express.urlencoded({
   extended: true
 }));
-app.use(express.static(path.join(__dirname + "/public")));
 app.use(express.json());
 var corsOptions = {
     origin: 'http://localhost:'+PORT,
@@ -73,6 +72,9 @@ app.use(function (err, req, res, next) {
     res.status(500).send('Something broke!')
 })
 
+app.get("/redirect-example", (req, res) => {
+  res.redirect("https://rizzlydev.github.io/yiff-node-js/");
+});
 
 //api getter e621.net
 app.get("/api/all", async (req, res) => {
