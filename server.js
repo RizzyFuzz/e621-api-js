@@ -72,7 +72,7 @@ app.use(function (err, req, res, next) {
     res.status(500).send('Something broke!')
 })
 
-app.get("/redirect-example", (req, res) => {
+app.get("/", (req, res) => {
   res.redirect("https://rizzlydev.github.io/yiff-node-js/");
 });
 
