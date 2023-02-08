@@ -35,7 +35,7 @@
                 }
               }
             }
-          }
+          },
           "505": {
             "description": "Not Found",
             "schema": {
