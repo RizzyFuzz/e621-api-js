@@ -18,7 +18,7 @@ app.use(swaggerUi.serve);
 app.use(express.urlencoded({ extended: true }));
 app.use(yatim.json({ type: "application/json" }));
 app.use(express.json());
-app.use(cors);
+//app.use(cors);
 app.disable("x-powered-by");
 app.use((req, res, next) => {
   res.setHeader("x-powered-by", "RizzyFuzz Backend");
