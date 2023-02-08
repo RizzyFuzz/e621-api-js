@@ -1,6 +1,7 @@
+const firstApi = require("./lib/firstApi.js");
 const express = require("express");
 const logger = require("morgan");
-const firstApi = require("./lib/firstApi.js");
+const yatim = require("body-parser");
 var cors = require('cors');
 const path = require('path');
 const chalk = require("chalk");
@@ -16,8 +17,9 @@ app.enable('trust proxy');
 app.set("trust proxy", true);
 app.use(swaggerUi.serve);
 app.use(express.urlencoded({
-  extended: true
+  extended: true 
 }));
+app.use(yatim.json({ type: 'application/json' })) 
 app.use(express.json());
 var corsOptions = {
     origin: 'http://localhost:'+PORT,
