@@ -68,7 +68,7 @@ app.use(
 );
 
 const REVERSE_PROXY = eval(true);
-const ALLOW = ["e621api-rizzly.cyclic.app"];
+const ALLOW = ["e621.cyclic.app"];
 
 app.use((req, res, next) => {
   res.locals.req = req;
