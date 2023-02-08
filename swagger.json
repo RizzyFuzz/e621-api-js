@@ -2,9 +2,9 @@
   "swagger": "2.0",
   "info": {
     "contact": {
-        "email": "service@rizzly.biz.id",
-        "name": "RizzyFuzz"
-      },
+      "email": "service@rizzly.biz.id",
+      "name": "RizzyFuzz"
+    },
     "title": "E621 API",
     "version": "1.0.0",
     "description": "Example E621 API Documentation"
@@ -101,5 +101,4 @@
       }
     }
   }
-} 
-  
+}
