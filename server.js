@@ -1,5 +1,3 @@
-"use strict";
-
 const thisE621 = require("./lib/client.e621.js");
 const express = require("express");
 const logger = require("morgan");
