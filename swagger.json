@@ -1,23 +1,24 @@
 {
   "swagger": "2.0",
   "info": {
+    "contact": {
+        "email": "service@rizzly.biz.id",
+        "name": "RizzyFuzz"
+      },
     "title": "E621 API",
     "version": "1.0.0",
     "description": "Example E621 API Documentation"
   },
   "host": "e621api-rizzly.cyclic.app",
-  "basePath": "/",
+  "basePath": "/api",
   "paths": {
     "/api/random": {
       "get": {
-      "summary": "Menampilkan metadata secara random dari e621",
-      "produces": [
-          "application/json"
-        ],
+        "description": "Get a random metadata",
         "parameters": [
           {
-            "description": "Query Pencarian",
             "name": "tags",
+            "description": "Comma-separated list of tags",
             "in": "query",
             "required": true,
             "type": "string"
@@ -29,21 +30,21 @@
             "schema": {
               "type": "object",
               "properties": {
-                "Found": {
+                "success": {
                   "type": "boolean",
                   "example": true
                 }
               }
             }
           },
-          "505": {
+          "404": {
             "description": "Not Found",
             "schema": {
               "type": "object",
               "properties": {
                 "status": {
                   "type": "string",
-                  "example": "505"
+                  "example": "404"
                 },
                 "error": {
                   "type": "string",
@@ -57,14 +58,11 @@
     },
     "/api/all": {
       "get": {
-      "summary": "Menampilkan semua metadata dari e621",
-      "produces": [
-          "application/json"
-        ],
+        "description": "Get all metadata",
         "parameters": [
           {
-            "description": "Query Pencarian",
             "name": "tags",
+            "description": "Comma-separated list of tags",
             "in": "query",
             "required": true,
             "type": "string"
@@ -76,22 +74,21 @@
             "schema": {
               "type": "object",
               "properties": {
-                "Found": {
+                "success": {
                   "type": "boolean",
                   "example": true
                 }
               }
             }
           },
-          "505": {
+          "404": {
             "description": "Not Found",
             "schema": {
               "type": "object",
               "properties": {
                 "status": {
                   "type": "string",
-                  "example": "505"
-                },
+                  "example": "404"
                 },
                 "error": {
                   "type": "string",
@@ -102,6 +99,7 @@
           }
         }
       }
-
     }
-}
+  }
+} 
+  
