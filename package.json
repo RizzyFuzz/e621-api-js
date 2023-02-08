@@ -37,6 +37,7 @@
     "file-type": "16.5.3",
     "fs": "0.0.1-security",
     "form-data": "4.0.0",
+    "swagger-ui-express": "github:caliphdev/swagger-ui-express"
     "express": "^4.18.2",
     "ssl-express-www": "^3.0.7",
     "caliph-api": "github:caliphdev/caliph-api",
