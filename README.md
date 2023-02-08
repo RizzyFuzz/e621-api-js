@@ -24,7 +24,7 @@ const fetch = require('node-fetch');
 async function getJsonData(url) {
 return fetch(url).then(a => a.json())
 }
-cosnt thisUrl = "https://e621api-rizzly.cyclic.app/api/all?tags=oouyuki_benten"
+cosnt thisUrl = "https://e621.cyclic.app/api/all?tags=oouyuki_benten"
 console.log(await getJsonData(thisUrl)); 
 ```
 > result:
@@ -55,7 +55,7 @@ const fetch = require('node-fetch');
 async function getJsonData(url) {
 return fetch(url).then(a => a.json())
 }
-cosnt thisUrl = "https://e621api-rizzly.cyclic.app/api/random?tags=oouyuki_benten"
+cosnt thisUrl = "https://e621api.cyclic.app/api/random?tags=oouyuki_benten"
 console.log(await getJsonData(thisUrl)); 
 ```
 > result:
