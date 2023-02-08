@@ -44,7 +44,7 @@
                 "status": {
                   "type": "string",
                   "example": "505"
-                }
+                },
                 "error": {
                   "type": "string",
                   "example": "Content or artist Not Found X'3"
@@ -91,7 +91,8 @@
                 "status": {
                   "type": "string",
                   "example": "505"
-                }
+                },
+                },
                 "error": {
                   "type": "string",
                   "example": "Content or artist Not Found X'3"
