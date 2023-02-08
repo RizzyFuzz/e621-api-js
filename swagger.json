@@ -38,7 +38,7 @@
         },
         "found": {
                   "type": "string",
-                            "description": "Ditemukan",
+                            "description": "Metadata Ditemukan",
                   "example": true
          },
         "result": {
@@ -88,7 +88,7 @@
         },
             "score": {
       "type": "object",
-      "description": "Score Metadata"
+      "description": "Score Metadata",
       "properties": {
         "up": {
           "type": "integer"
@@ -103,7 +103,7 @@
     },
         "rating": {
           "type": "string",
-          "description": "Rating Metadata"
+          "description": "Rating Metadata",
           "enum": [
             "s",
             "q",
@@ -195,7 +195,7 @@
         ],
         "parameters": [
           {
-            "description": "Query Pencarian,
+            "description": "Query Pencarian",
             "name": "tags",
             "in": "query",
             "required": true,
