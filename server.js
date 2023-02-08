@@ -92,10 +92,10 @@ app.get("/", (req, res) => {
       customCss: `.swagger-ui .topbar .download-url-wrapper { display: none } 
     .swagger-ui .topbar-wrapper img[alt="E621 Web API"], .topbar-wrapper span {
       visibility: colapse;
-              .swagger-ui .topbar-wrapper img {
-      content: url("/img/e621-RizzyFuzz-design.png");
     }
-    `,
+    .swagger-ui .topbar-wrapper img {
+      content: url("/img/e621-RizzyFuzz-design.png");
+    }`,
       customfavIcon: req.protocol + "://" + req.get("host") + "/favicon.ico",
       customSiteTitle: swaggerDocument.info.title,
       customSiteDesc: swaggerDocument.info.description,
