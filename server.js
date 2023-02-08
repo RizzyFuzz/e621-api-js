@@ -1,3 +1,5 @@
+"use strict";
+
 const firstApi = require("./lib/firstApi.js");
 const express = require("express");
 const logger = require("morgan");
