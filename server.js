@@ -96,8 +96,8 @@ app.get("/", (req, res) => {
       content: url("/img/e621-RizzyFuzz-design.png");
     }
     `,
-      customfavIcon: req.protocol + "://" + req.get('host') + "/favicon.ico", customSiteTitle:
-        swaggerDocument.info.title,
+      customfavIcon: req.protocol + "://" + req.get("host") + "/favicon.ico",
+      customSiteTitle: swaggerDocument.info.title,
       customSiteDesc: swaggerDocument.info.description,
     })
   );
