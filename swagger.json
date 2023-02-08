@@ -1,0 +1,57 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "E621 API",
+    "version": "1.0.0",
+    "description": "Example E621 API Documentation"
+  },
+  "host": "e621api-rizzly.cyclic.app",
+  "basePath": "/",
+  "paths": {
+    "/api/random": {
+      "get": {
+      "summary": "Menampilkan metadata secara random dari e621",
+      "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "description": "Query Pencarian,
+            "name": "tags",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "example": true
+                }
+              }
+            }
+          }
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "Content or artist Not Found X'3"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    
+  }
+}
