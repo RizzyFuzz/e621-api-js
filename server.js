@@ -24,6 +24,8 @@ var corsOptions = {
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 app.use(cors(corsOptions));
+app.disable('x-powered-by')
+app.use((req, res, next) => { res.setHeader('x-powered-by', 'RizzyFuzz Backend');next() })
 
 function formatBytes(bytes, decimals = 2) {
     if (bytes === 0) return '0 Bytes';
