@@ -63,7 +63,7 @@
         ],
         "parameters": [
           {
-            "description": "Query Pencarian,
+            "description": "Query Pencarian",
             "name": "tags",
             "in": "query",
             "required": true,
