@@ -110,9 +110,9 @@ app.get("/swagger.json", (req, res) => {
 app.get("/api/all", async (req, res) => {
   let tags = req.query.tags;
   if (!tags)
-    return res.status(400).json({
+    return res.status(424).json({
+      status: 424,
       creator: "RizzyFuzz",
-      status: 400,
       error: "No Artist/Tags Provided",
     });
   try {
@@ -122,6 +122,7 @@ app.get("/api/all", async (req, res) => {
     console.log(e);
     res.status(500).json({
       status: 500,
+      creator: "RizzyFuzz",
       error: e.message,
     });
   }
@@ -130,9 +131,9 @@ app.get("/api/all", async (req, res) => {
 app.get("/api/random", async (req, res) => {
   let tags = req.query.tags;
   if (!tags)
-    return res.status(400).json({
+    return res.status(424).json({
+      status: 424,
       creator: "RizzyFuzz",
-      status: 400,
       error: "No Artist/Tags Provided",
     });
   try {
@@ -143,6 +144,7 @@ app.get("/api/random", async (req, res) => {
     console.log(e);
     res.status(500).json({
       status: 500,
+      creator: "RizzyFuzz",
       error: e.message,
     });
   }
@@ -152,6 +154,7 @@ app.get("/api/random", async (req, res) => {
 app.all("*", async (req, res) => {
   res.status(404).json({
     status: 404,
+    creator: "RizzyFuzz",
     error: "Page you are looking for is not found",
   });
 });
