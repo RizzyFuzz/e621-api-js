@@ -1,5 +1,5 @@
 {
-  "name": "yiff-node-js",
+  "name": "e621-api-js",
   "version": "1.0.0",
   "description": "Simple to get api json in e621.net",
   "depecrated": false,
