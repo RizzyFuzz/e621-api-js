@@ -16,7 +16,7 @@
         ],
         "parameters": [
           {
-            "description": "Query Pencarian",
+            "description": "Query Pencarian,
             "name": "tags",
             "in": "query",
             "required": true,
@@ -25,33 +25,159 @@
         ],
         "responses": {
           "200": {
-            "description": "Found!",
+            "description": "Success Found Metadata",
             "schema": {
               "type": "object",
               "properties": {
-                "success": {
-                  "type": "boolean",
+                "meta": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "string",
+          "description": "Nama author dari pembuat script",
+          "required": true
+        },
+        "post_id": {
+          "type": "integer",
+          "description": "ID unik dari postingan"
+        },
+        "found": {
+                  "type": "string",
                   "example": true
-                }
-              }
-            }
-          },
+         },
+        "result": {
+      "type": "object",
+      "properties": {
+        "artist": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "species": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+                "character": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "copyright": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "lore": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "meta": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+            "score": {
+      "type": "object",
+      "properties": {
+        "up": {
+          "type": "integer"
+        },
+        "down": {
+          "type": "integer"
+        },
+        "total": {
+          "type": "integer"
+        }
+      }
+    },
+        "rating": {
+          "type": "string",
+          "enum": [
+            "s",
+            "q",
+            "e"
+          ]
+        },
+        "fav_count": {
+          "type": "integer",
+          "description": "Jumlah favorite dari postingan"
+        },
+            "info": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "ext": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "static": {
+      "type": "object",
+      "properties": {
+        "md5": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "string"
+        }
+      }
+    }
+      }
+    }
+  }
+}
+      },
           "505": {
             "description": "Not Found",
             "schema": {
               "type": "object",
               "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "505"
+                },
                 "error": {
                   "type": "string",
                   "example": "Content or artist Not Found X'3"
-                }
+                },
               }
             }
           }
         }
-      }
-    }
-    
-    
-  }
-}
+        }
+        }
+        }
+        }
+        }
+        }
