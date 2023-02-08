@@ -17,18 +17,10 @@ app.set("json spaces", 2);
 app.enable("trust proxy");
 app.set("trust proxy", true);
 app.use(swaggerUi.serve);
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
+app.use(express.urlencoded({ extended: true }))
 app.use(yatim.json({ type: "application/json" }));
 app.use(express.json());
-var corsOptions = {
-  origin: "http://localhost:" + PORT,
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-app.use(cors(corsOptions));
+app.use(cors);
 app.disable("x-powered-by");
 app.use((req, res, next) => {
   res.setHeader("x-powered-by", "RizzyFuzz Backend");
