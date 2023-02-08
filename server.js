@@ -94,7 +94,7 @@ app.get("/", (req, res) => {
       visibility: colapse;
     }
     .swagger-ui .topbar-wrapper img {
-      content: url( req.get("host") + "/img/e621-RizzyFuzz-Design.png" );
+      content: url("img/e621-RizzyFuzz-Design.png" );
     }`,
       customfavIcon: req.protocol + "://" + req.get("host") + "/favicon.ico",
       customSiteTitle: swaggerDocument.info.title,
