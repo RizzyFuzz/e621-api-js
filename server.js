@@ -15,6 +15,7 @@ app.set("json spaces", 2);
 app.enable("trust proxy");
 app.set("trust proxy", true);
 app.use(swaggerUi.serve);
+app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(yatim.json({ type: "application/json" }));
 app.use(express.json());
