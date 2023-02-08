@@ -1,6 +1,6 @@
 # Unofficial e621.net API Library
 <p align="center">
-<a target="_blank" href="https://github.com/rizzlydev"><img src="" alt="" width="169" /></a>
+<a target="_blank" href="https://github.com/rizzlydev"><img src="https://github.com/rizzlydev/yiff-node-js/blob/main/public/img/e621-RizzyFuzz-Design.png?raw=true" alt="" size="80" /></a>
 </p>
 <p align="center">
 <a target="_blank" href="https://github.com/rizzlydev"><img title="Author" src="https://img.shields.io/badge/Author-RizzFuzz-red.svg?style=for-the-badge&logo=github" /></a>
@@ -19,7 +19,7 @@ If there are bugs,<br>
 please create [Issues](https://github.com/rizzlydev/e621-api-js/issues/new)
 
 # Docs
-
+## Try It!
 you can try directly [here](https://e621.cyclic.app)
 
 ## Get All Metadata
