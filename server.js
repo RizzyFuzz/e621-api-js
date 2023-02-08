@@ -1,6 +1,6 @@
 "use strict";
 
-const firstApi = require("./lib/firstApi.js");
+const thisE621 = require("./lib/621.js");
 const express = require("express");
 const logger = require("morgan");
 const yatim = require("body-parser");
@@ -17,7 +17,7 @@ app.set("json spaces", 2);
 app.enable("trust proxy");
 app.set("trust proxy", true);
 app.use(swaggerUi.serve);
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }))
 app.use(yatim.json({ type: "application/json" }));
 app.use(express.json());
 app.use(cors);
@@ -112,8 +112,8 @@ app.get("/api/all", async (req, res) => {
       error: "No Artist/Tags Provided",
     });
   try {
-    let result = await firstApi(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
-    res.json({ meta: result, status: 200 });
+    let yiff = await thisE621(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
+    res.json({ yiff, status: 200, creator: "RizzyFuzz" });
   } catch (e) {
     console.log(e);
     res.status(500).json({
@@ -132,9 +132,9 @@ app.get("/api/random", async (req, res) => {
       error: "No Artist/Tags Provided",
     });
   try {
-    let result = await firstApi(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
-    const meta = result[Math.floor(Math.random() * result.length)];
-    res.json({ meta, status: 200 });
+    let result = await thisE621(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
+    const yiff = result[Math.floor(Math.random() * result.length)];
+    res.json({ yiff, status: 200, creator: "RizzyFuzz" });
   } catch (e) {
     console.log(e);
     res.status(500).json({
