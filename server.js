@@ -18,7 +18,7 @@ app.enable("trust proxy");
 app.set("trust proxy", true);
 app.use(swaggerUi.serve);
 app.use(express.urlencoded({ extended: true }));
-//app.use(yatim.json({ type: "application/json" }));
+app.use(yatim.json({ type: "application/json" }));
 app.use(express.json());
 app.use(cors);
 app.disable("x-powered-by");
@@ -97,6 +97,7 @@ app.get("/", (req, res) => {
     })
   );
 });
+
 app.get("/swagger.json", (req, res) => {
   swaggerDocument.host = req.get("host");
   swaggerDocument.schemes = [req.protocol];
@@ -147,8 +148,8 @@ app.get("/api/random", async (req, res) => {
 
 //! Fallback Middleware
 app.all("*", async (req, res) => {
-  res.status(505).json({
-    status: 505,
+  res.status(404).json({
+    status: 404,
     error: "Page you are looking for is not found",
   });
 });
