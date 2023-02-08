@@ -18,10 +18,12 @@
           "type": "object",
           "properties": {
             "status": {
-              "type": "integer"
+              "type": "string",
+              "example": "505"
             },
             "error": {
-              "type": "string"
+              "type": "string",
+              "example": "Content or artist Not Found X'3"
             }
           }
         },
@@ -39,186 +41,64 @@
         "found": {
                   "type": "string",
                             "description": "Metadata Ditemukan",
-                  "example": true
-         },
-        "result": {
-      "type": "object",
-      "properties": {
-        "artist": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "description": "Artist Metadata"
-          }
+                  "example": true, 
+
+         } 
+
         },
-        "species": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "description": "Species Metdata"
-          }
+
         },
-                "character": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "description": "Character Metadata"
-          }
+
         },
-        "copyright": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "description": "Copyright Metadata"
-          }
+
         },
-        "lore": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "description": "Lore Metadata"
-          }
+
         },
-        "meta": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "description": "Meta Metadata"
-          }
-        },
-            "score": {
-      "type": "object",
-      "description": "Score Metadata",
-      "properties": {
-        "up": {
-          "type": "integer"
-        },
-        "down": {
-          "type": "integer"
-        },
-        "total": {
-          "type": "integer"
-        }
-      }
-    },
-        "rating": {
-          "type": "string",
-          "description": "Rating Metadata",
-          "enum": [
-            "s",
-            "q",
-            "e"
-          ]
-        },
-        "fav_count": {
-          "type": "integer",
-          "description": "Jumlah favorite dari postingan"
-        },
-            "info": {
-      "type": "object",
-      "properties": {
-        "width": {
-          "type": "integer",
-          "description": "Width Art Metadata"
-        },
-        "height": {
-          "type": "integer",
-          "description": "Height Art Metadata"
-        },
-        "ext": {
-          "type": "string",
-          "description": "Mimetype Art Metadata"
-        },
-        "size": {
-          "type": "string",
-          "description": "Size Art Metadata"
-        },
-        "duration": {
-          "type": "string",
-          "description": "Duration Metadata"
-        },
-        "created_at": {
-          "type": "string",
-          "description": "Create At Metadata"
-        },
-        "updated_at": {
-          "type": "string",
-          "description": "Update At Metadata"
-        },
-        "description": {
-          "type": "string",
-          "description": "Description Art Metadata"
-        }
-      }
-    },
-    "static": {
-      "type": "object",
-      "properties": {
-        "md5": {
-          "type": "string",
-          "description": "MD5 Metadata"
-        },
-        "url": {
-          "type": "string",
-          "description": "Url Static Metadata"
-        },
-        "sources": {
-          "type": "string",
-          "description": "Source Metadata"
-        }
-       }
-      }
-     }
-    }
-   }
-},
-          "thisError": {
-              "type": "object",
-              "properties": {
-                "status": {
-                  "type": "string",
-                  "example": "505"
-                },
-                "error": {
-                  "type": "string",
-                  "example": "Content or artist Not Found X'3"
-                }
-              }
-          }
-    },
-  "paths": {
-    "/api/random": {
-      "get": {
-      "summary": "Menampilkan metadata secara random dari e621",
-      "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "description": "Query Pencarian",
-            "name": "tags",
-            "in": "query",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-              "description": "Content Found",
-              "schema": {
-                "$ref": "#/definitions/Metadata"
-              }
-            },
-            "505": {
-              "description": "Not Found",
-              "schema": {
-                "$ref": "#/definitions/thisError"
-              }
-            }
-            
-        }
-        }
-        }
-        
-        }
-        }
+
+  },
+
+  },
+
+  },
+
+  },
+
+  },
+
+  },
+
+  },
+
+  },
+
+  },
+
+  },
+
+  },
+
+  },
+
+  },
+
+  }
+
+  }
+
+  }
+
+  }
+
+  }
+
+  }
+
+  }
+
+  }
+
+  }
+
+  }
+
+   path: { "/api/random" : {   get: {   summary: 'Menampilkan metadata secara random dari e621',   produces: [ 'application/json' ],   parameters: [   {   description: 'Query Pencarian',   name: 'tags',   in: 'query',   required: true,   type: 'string'   } ],   responses: { 200: { description: 'Content Found', schema: { $ref: '#/definitions/Metadata' }}, 505: { description: 'Not Found', schema: { $ref: '#/definitions/thisError' }} }} }}
