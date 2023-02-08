@@ -112,13 +112,11 @@ app.get("/swagger.json", (req, res) => {
 app.get("/api/all", async (req, res) => {
   let tags = req.query.tags;
   if (!tags)
-    return res
-      .status(400)
-      .json({
-        creator: "RizzyFuzz",
-        status: 400,
-        error: "No Artist/Tags Provided",
-      });
+    return res.status(400).json({
+      creator: "RizzyFuzz",
+      status: 400,
+      error: "No Artist/Tags Provided",
+    });
   try {
     let result = await firstApi(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
     res.json({ meta: result, status: 200 });
@@ -134,13 +132,11 @@ app.get("/api/all", async (req, res) => {
 app.get("/api/random", async (req, res) => {
   let tags = req.query.tags;
   if (!tags)
-    return res
-      .status(400)
-      .json({
-        creator: "RizzyFuzz",
-        status: 400,
-        error: "No Artist/Tags Provided",
-      });
+    return res.status(400).json({
+      creator: "RizzyFuzz",
+      status: 400,
+      error: "No Artist/Tags Provided",
+    });
   try {
     let result = await firstApi(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
     const meta = result[Math.floor(Math.random() * result.length)];
