@@ -1,6 +1,6 @@
 # Unofficial e621.net API Library
 <p align="center">
-<a target="_blank" href="https://github.com/rizzlydev"><img src="https://avatars.githubusercontent.com/rizzlydev?s=400" alt="" width="169" /></a>
+<a target="_blank" href="https://github.com/rizzlydev"><img src="" alt="" width="169" /></a>
 </p>
 <p align="center">
 <a target="_blank" href="https://github.com/rizzlydev"><img title="Author" src="https://img.shields.io/badge/Author-RizzFuzz-red.svg?style=for-the-badge&logo=github" /></a>
@@ -20,8 +20,9 @@ please create [Issues](https://github.com/rizzlydev/e621-api-js/issues/new)
 
 # Docs
 
+you can try directly [here](https://e621.cyclic.app)
 
-## Get All Data (API)
+## Get All Metadata
 
 ```js
 const fetch = require('node-fetch');
@@ -34,11 +35,10 @@ console.log(await getJsonData(thisUrl));
 > result:
 ```bash
 {
-  meta: {
-      author: 'RizzyFuzz',
+  yiff: {
       post_id: 3830421,
       found: true,
-      result: [Object]
+      metadata: [Object]
     },
     {
       author: 'RizzyFuzz',
@@ -48,11 +48,12 @@ console.log(await getJsonData(thisUrl));
     }
    More 500 items...
     },
+    author: 'RizzyFuzz', 
     status: 200
 }
 ```
 
-## Get Random Data (API)
+## Get Random Metadata
 
 ```js
 const fetch = require('node-fetch');
@@ -65,11 +66,10 @@ console.log(await getJsonData(thisUrl));
 > result:
 ```bash
 {
-  meta: {
-    author: 'RizzyFuzz',
+  yiff: {
     post_id: 2893476,
     found: true,
-    result: {
+    metadata: {
       artist: [Array],
       species: [Array],
       character: [Array],
@@ -83,6 +83,7 @@ console.log(await getJsonData(thisUrl));
       static: [Object]
     }
   },
+  author: 'RizzyFuzz',
   status: 200
 }
 ```
