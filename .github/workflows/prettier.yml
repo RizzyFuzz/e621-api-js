@@ -1,9 +1,10 @@
-name: Beutifier Codes
-
-on: workflow_dispatch
-
+name: Prettier By RizzyFuzz
+on: 
+  push:
+    branches:
+      - main
 jobs:
-  format:
+  prettier:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -13,10 +14,12 @@ jobs:
         with:
           node-version: "16.x"
       - run: npm i -g prettier
-      - run: prettier --write '**/*.{js,json}'
-      - name: Commit changes
+      - run: prettier --write
+      - name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: automatic tidy up code
+          commit_message: Automatic Tidy Up Code
           branch: ${{ github.head_ref }}
+
+
           
