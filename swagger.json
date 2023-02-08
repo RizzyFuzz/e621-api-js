@@ -10,7 +10,7 @@
     "description": "Example E621 API Documentation"
   },
   "host": "e621api-rizzly.cyclic.app",
-  "basePath": "/api",
+  "basePath": "/",
   "paths": {
     "/api/random": {
       "get": {
