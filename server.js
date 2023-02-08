@@ -5,12 +5,16 @@ var cors = require('cors');
 const path = require('path');
 const chalk = require("chalk");
 const PORT = 8000;
+const swaggerDocument = require('./swagger.json');
+const swaggerUi = require('swagger-ui-express');
+
 
 const app = express();
 app.use(logger('dev'));
 app.set("json spaces", 2);
 app.enable('trust proxy');
 app.set("trust proxy", true);
+app.use(swaggerUi.serve);
 app.use(express.urlencoded({
   extended: true
 }));
@@ -70,9 +74,21 @@ app.use(function (err, req, res, next) {
     res.status(500).send('Something broke!')
 })
 
-app.get("/", (req, res) => {
-  res.redirect("https://rizzlydev.github.io/yiff-node-js/");
+app.get('/', (req, res) => {
+    swaggerDocument.host = req.get('host');
+    swaggerDocument.schemes = [req.protocol];
+    res.send(swaggerUi.generateHTML(swaggerDocument, { customCss: `.swagger-ui .topbar .download-url-wrapper { display: none } 
+    .swagger-ui .topbar-wrapper img[alt="E621 Web API"], .topbar-wrapper span {
+      visibility: colapse;
+    }
+    `, /*customfavIcon: req.protocol + "://" + req.get('host') + "/favicon.ico",*/ customSiteTitle: swaggerDocument.info.title, customSiteDesc: swaggerDocument.info.description }));
 });
+app.get('/swagger.json', (req, res) => {
+    swaggerDocument.host = req.get('host');
+    swaggerDocument.schemes = [req.protocol];
+    res.json(swaggerDocument);
+});
+
 
 //api getter e621.net
 app.get("/api/all", async (req, res) => {
