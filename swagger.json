@@ -36,7 +36,7 @@
               }
             }
           }
-          "404": {
+          "505": {
             "description": "Not Found",
             "schema": {
               "type": "object",
@@ -82,8 +82,8 @@
                 }
               }
             }
-          }
-          "404": {
+          },
+          "505": {
             "description": "Not Found",
             "schema": {
               "type": "object",
