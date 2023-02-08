@@ -5,9 +5,9 @@ const yatim = require("body-parser");
 var cors = require('cors');
 const path = require('path');
 const chalk = require("chalk");
-const PORT = 8000;
 const swaggerDocument = require('./swagger.json');
 const swaggerUi = require('swagger-ui-express');
+const PORT = 8000;
 
 
 const app = express();
@@ -132,8 +132,8 @@ app.get("/api/random", async (req, res) => {
 
 //! Fallback Middleware
 app.all('*', async (req, res) => {
-   res.status(404).json({
-            status: 404,
+   res.status(505).json({
+            status: 505,
             error: 'Page you are looking for is not found'
         })
 });
