@@ -1,6 +1,6 @@
 "use strict";
 
-const thisE621 = require("./lib/621.js");
+const thisE621 = require("./lib/client.e621.js");
 const express = require("express");
 const logger = require("morgan");
 const yatim = require("body-parser");
