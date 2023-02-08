@@ -166,11 +166,11 @@
           "type": "string",
           "description": "Source Metadata"
         }
+       }
       }
-    },
-      }
+     }
     }
-  }
+   }
 },
           "thisError": {
               "type": "object",
