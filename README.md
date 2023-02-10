@@ -33,15 +33,9 @@ console.log(await getJsonData(thisUrl));
   yiff: {
       post_id: 3830421,
       found: true,
-      metadata: [Object]
-    },
-    {
-      author: 'RizzyFuzz',
-      post_id: 3830385,
-      found: true,
       result: [Object]
     }
-   More 500 items...
+    More 500 items...
     },
     author: 'RizzyFuzz', 
     status: 200
