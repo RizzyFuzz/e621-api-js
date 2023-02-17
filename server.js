@@ -153,6 +153,34 @@ app.get("/api/random", async (req, res) => {
   }
 });
 
+app.get('/api/getImg', (req, res) => {
+  let url = req.query.url;
+  if (!url.includes('static1.e621.net')) {
+    return res.status(402).send({ msg: "Masukan link static dari e621.net" });
+  }
+  const sessionCookie = '_danbooru_session=1wdBGy%2Fr55LVn554a7gLc6rBVNoFSsjcZstcDhnaUWXFDiJL%2Bcv7XFLUySHKoTR9hBtTFzP%2FxdH29vomdWEGyuh6Dvy3xA0O5rZqGG0u8bxXY%2FHzH1f88V9qsI6r0qrIAteIatZC01t6%2Fxy6g2zDfXo3HxEY2jKai1zlWzN0ksTVxLtTWb6aP8GQDEuwF2hSwrnjQBWFpAgzezog%2Bl4tG58dSRfsvjjshwubFV1DQL8imJPpGqUe7LFNLnn85r9UyQ9UKaBiOz0hyKcrV6EOskWXh2cT7iAkBKjFuaXdLkynHPlZWrS6%2BChpOPKS6uoimSQ0Q13uxUabRRNEkmShFCiDK1fU--3EsX0dcp%2BscT4tJp--Gi1chQ7z3yM9xQEDo9Gh8w%3D%3D';
+  
+  const headers = {
+    'accept': "*/*",
+    'Cookie': sessionCookie,
+    'Content-Type': 'image/png'
+  };
+
+  axios.get(url, {
+    headers: headers,
+    responseType: 'arraybuffer'
+  })
+    .then(response => {
+      const buffer = Buffer.from(response.data, 'binary');
+      res.contentType('image/png');
+      res.send(buffer);
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).send({ msg: "Terjadi kesalahan saat memuat gambar" });
+    });
+});
+
 //! Fallback Middleware
 app.all("*", async (req, res) => {
   res.status(404).json({
