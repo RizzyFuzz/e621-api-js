@@ -183,8 +183,9 @@ app.get("/api/getMedia", (req, res) => {
       responseType: "arraybuffer",
     })
     .then((response) => {
-      console.log(response.headers['content-type']);
-      res.contentType(response.headers['content-type']);
+      let header = response.headers['content-type'];
+      console.log(header);
+      res.contentType(header);
       res.send(response.data); 
     })
     .catch((error) => {
