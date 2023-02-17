@@ -168,10 +168,11 @@ app.get("/api/getImg", (req, res) => {
       creator: "RizzyFuzz",
       msg: "The url you entered is not from static e621.net",
     });
-  
+
   const headers = {
-    "accept": "*/*",
-    "Cookie": "_danbooru_session=1wdBGy%2Fr55LVn554a7gLc6rBVNoFSsjcZstcDhnaUWXFDiJL%2Bcv7XFLUySHKoTR9hBtTFzP%2FxdH29vomdWEGyuh6Dvy3xA0O5rZqGG0u8bxXY%2FHzH1f88V9qsI6r0qrIAteIatZC01t6%2Fxy6g2zDfXo3HxEY2jKai1zlWzN0ksTVxLtTWb6aP8GQDEuwF2hSwrnjQBWFpAgzezog%2Bl4tG58dSRfsvjjshwubFV1DQL8imJPpGqUe7LFNLnn85r9UyQ9UKaBiOz0hyKcrV6EOskWXh2cT7iAkBKjFuaXdLkynHPlZWrS6%2BChpOPKS6uoimSQ0Q13uxUabRRNEkmShFCiDK1fU--3EsX0dcp%2BscT4tJp--Gi1chQ7z3yM9xQEDo9Gh8w%3D%3D",
+    accept: "*/*",
+    Cookie:
+      "_danbooru_session=1wdBGy%2Fr55LVn554a7gLc6rBVNoFSsjcZstcDhnaUWXFDiJL%2Bcv7XFLUySHKoTR9hBtTFzP%2FxdH29vomdWEGyuh6Dvy3xA0O5rZqGG0u8bxXY%2FHzH1f88V9qsI6r0qrIAteIatZC01t6%2Fxy6g2zDfXo3HxEY2jKai1zlWzN0ksTVxLtTWb6aP8GQDEuwF2hSwrnjQBWFpAgzezog%2Bl4tG58dSRfsvjjshwubFV1DQL8imJPpGqUe7LFNLnn85r9UyQ9UKaBiOz0hyKcrV6EOskWXh2cT7iAkBKjFuaXdLkynHPlZWrS6%2BChpOPKS6uoimSQ0Q13uxUabRRNEkmShFCiDK1fU--3EsX0dcp%2BscT4tJp--Gi1chQ7z3yM9xQEDo9Gh8w%3D%3D",
     "Content-Type": "image/png",
   };
 
@@ -187,7 +188,9 @@ app.get("/api/getImg", (req, res) => {
     })
     .catch((error) => {
       console.log(error);
-      res.status(500).send({ msg: "An error occurred while loading the image" });
+      res
+        .status(500)
+        .send({ msg: "An error occurred while loading the image" });
     });
 });
 
