@@ -185,7 +185,7 @@ app.get("/api/getMedia", (req, res) => {
     .then((response) => {
       console.log(response.headers['content-type']);
       res.contentType(response.headers['content-type']);
-      res.send(Buffer.from(response.data, 'binary')); 
+      res.send(response.data); 
     })
     .catch((error) => {
       console.log(error);
