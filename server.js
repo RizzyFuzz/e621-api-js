@@ -161,13 +161,13 @@ app.get("/api/getImg", (req, res) => {
       creator: "RizzyFuzz",
       msg: "Masukan link static dari e621.net",
     });
-  if (!url.includes("static1.e621.net")) 
-    return res.status(424).send({ 
+  if (!url.includes("static1.e621.net"))
+    return res.status(424).send({
       status: 424,
       creator: "RizzyFuzz",
-      msg: "Url yang kamu masukan bukan dari static e621.net" 
+      msg: "Url yang kamu masukan bukan dari static e621.net",
     });
-  
+
   const sessionCookie =
     "_danbooru_session=1wdBGy%2Fr55LVn554a7gLc6rBVNoFSsjcZstcDhnaUWXFDiJL%2Bcv7XFLUySHKoTR9hBtTFzP%2FxdH29vomdWEGyuh6Dvy3xA0O5rZqGG0u8bxXY%2FHzH1f88V9qsI6r0qrIAteIatZC01t6%2Fxy6g2zDfXo3HxEY2jKai1zlWzN0ksTVxLtTWb6aP8GQDEuwF2hSwrnjQBWFpAgzezog%2Bl4tG58dSRfsvjjshwubFV1DQL8imJPpGqUe7LFNLnn85r9UyQ9UKaBiOz0hyKcrV6EOskWXh2cT7iAkBKjFuaXdLkynHPlZWrS6%2BChpOPKS6uoimSQ0Q13uxUabRRNEkmShFCiDK1fU--3EsX0dcp%2BscT4tJp--Gi1chQ7z3yM9xQEDo9Gh8w%3D%3D";
 
