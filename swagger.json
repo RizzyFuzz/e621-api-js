@@ -14,7 +14,7 @@
   "paths": {
     "/api/random": {
       "get": {
-        "description": "Get a random metadata",
+        "description": "Get Random Metadata",
         "parameters": [
           {
             "name": "tags",
@@ -37,7 +37,7 @@
               }
             }
           },
-          "404": {
+          "505": {
             "description": "Not Found",
             "schema": {
               "type": "object",
@@ -46,9 +46,9 @@
                   "type": "string",
                   "example": "505"
                 },
-                "error": {
+                "msg": {
                   "type": "string",
-                  "example": "Content or artist Not Found X'3"
+                  "example": "Content Or Artist Not Found X'3"
                 }
               }
             }
@@ -58,7 +58,7 @@
     },
     "/api/all": {
       "get": {
-        "description": "Get all metadata",
+        "description": "Get All Metadata",
         "parameters": [
           {
             "name": "tags",
@@ -81,7 +81,7 @@
               }
             }
           },
-          "404": {
+          "505": {
             "description": "Not Found",
             "schema": {
               "type": "object",
@@ -90,9 +90,9 @@
                   "type": "string",
                   "example": "505"
                 },
-                "error": {
+                "msg": {
                   "type": "string",
-                  "example": "Content or artist Not Found X'3"
+                  "example": "Content Or Artist Not Found X'3"
                 }
               }
             }
