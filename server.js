@@ -154,7 +154,7 @@ app.get("/api/random", async (req, res) => {
   }
 });
 
-app.get("/api/getImg", (req, res) => {
+app.get("/api/getMedia", (req, res) => {
   let url = req.query.url;
   if (!url)
     return res.status(424).json({
