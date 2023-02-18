@@ -156,7 +156,6 @@ app.get("/api/random", async (req, res) => {
 });
 
 app.get("/api/getMedia", (req, res) => {
-  
   let url = req.query.url;
   if (!url)
     return res.status(424).json({
@@ -175,7 +174,7 @@ app.get("/api/getMedia", (req, res) => {
     accept: "*/*",
     Cookie:
       "_danbooru_session=1wdBGy%2Fr55LVn554a7gLc6rBVNoFSsjcZstcDhnaUWXFDiJL%2Bcv7XFLUySHKoTR9hBtTFzP%2FxdH29vomdWEGyuh6Dvy3xA0O5rZqGG0u8bxXY%2FHzH1f88V9qsI6r0qrIAteIatZC01t6%2Fxy6g2zDfXo3HxEY2jKai1zlWzN0ksTVxLtTWb6aP8GQDEuwF2hSwrnjQBWFpAgzezog%2Bl4tG58dSRfsvjjshwubFV1DQL8imJPpGqUe7LFNLnn85r9UyQ9UKaBiOz0hyKcrV6EOskWXh2cT7iAkBKjFuaXdLkynHPlZWrS6%2BChpOPKS6uoimSQ0Q13uxUabRRNEkmShFCiDK1fU--3EsX0dcp%2BscT4tJp--Gi1chQ7z3yM9xQEDo9Gh8w%3D%3D",
-    };
+  };
 
   axios
     .get(url, {
@@ -183,10 +182,10 @@ app.get("/api/getMedia", (req, res) => {
       responseType: "arraybuffer",
     })
     .then((response) => {
-      let header = response.headers['content-type'];
+      let header = response.headers["content-type"];
       console.log(header);
       res.contentType(header);
-      res.send(response.data); 
+      res.send(response.data);
     })
     .catch((error) => {
       console.log(error);
