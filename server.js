@@ -6,9 +6,14 @@ var cors = require("cors");
 const path = require("path");
 const chalk = require("chalk");
 const axios = require("axios");
-const url = require("url");
+const fs = require("fs");
 const swaggerDocument = require("./swagger.json");
 const swaggerUi = require("swagger-ui-express");
+let {
+  username,
+  api_key: apikey,
+  session: danbooruSession,
+} = JSON.parse(fs.readFileSync("./lib/config.json"));
 const PORT = 8000;
 
 const app = express();
@@ -69,11 +74,12 @@ app.use(
   })
 );
 
-const REVERSE_PROXY = eval(true);
-const ALLOW = ["e621.cyclic.app"];
 
 app.use((req, res, next) => {
   res.locals.req = req;
+  const REVERSE_PROXY = eval(true);
+
+const ALLOW = ["e621.cyclic.app"];
   if (REVERSE_PROXY && !ALLOW.includes(req.hostname))
     return res
       .status(403)
@@ -121,7 +127,7 @@ app.get("/api/all", async (req, res) => {
       msg: "No Artist/Tags Provided",
     });
   try {
-    let yiff = await thisE621(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
+    let yiff = await thisE621(tags, "rizzlydev", apikey);
     res.json({ yiff, status: 200, creator: "RizzyFuzz" });
   } catch (e) {
     console.log(e);
@@ -142,7 +148,7 @@ app.get("/api/random", async (req, res) => {
       msg: "No Artist/Tags Provided",
     });
   try {
-    let result = await thisE621(tags, "rizzlydev", "5w74sHAPpR7zYooJvXfa5ULv");
+    let result = await thisE621(tags, "rizzlydev", apikey);
     const yiff = result[Math.floor(Math.random() * result.length)];
     res.json({ yiff, status: 200, creator: "RizzyFuzz" });
   } catch (e) {
@@ -172,8 +178,7 @@ app.get("/api/getMedia", (req, res) => {
 
   const headers = {
     accept: "*/*",
-    Cookie:
-      "_danbooru_session=1wdBGy%2Fr55LVn554a7gLc6rBVNoFSsjcZstcDhnaUWXFDiJL%2Bcv7XFLUySHKoTR9hBtTFzP%2FxdH29vomdWEGyuh6Dvy3xA0O5rZqGG0u8bxXY%2FHzH1f88V9qsI6r0qrIAteIatZC01t6%2Fxy6g2zDfXo3HxEY2jKai1zlWzN0ksTVxLtTWb6aP8GQDEuwF2hSwrnjQBWFpAgzezog%2Bl4tG58dSRfsvjjshwubFV1DQL8imJPpGqUe7LFNLnn85r9UyQ9UKaBiOz0hyKcrV6EOskWXh2cT7iAkBKjFuaXdLkynHPlZWrS6%2BChpOPKS6uoimSQ0Q13uxUabRRNEkmShFCiDK1fU--3EsX0dcp%2BscT4tJp--Gi1chQ7z3yM9xQEDo9Gh8w%3D%3D",
+    Cookie: danbooruSession,
   };
 
   axios
