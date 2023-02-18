@@ -12,7 +12,7 @@ const swaggerUi = require("swagger-ui-express");
 let {
   username,
   api_key: apikey,
-  session: danbooruSession,
+  cookie: danbooruSession,
 } = JSON.parse(fs.readFileSync("./lib/config.json"));
 const PORT = 8000;
 
