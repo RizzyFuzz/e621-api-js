@@ -209,5 +209,5 @@ app.all("*", async (req, res) => {
 
 //Configure App
 app.listen(PORT, (req, res) => {
-  console.log("Server running on + req.hostname);
+  console.log("Server running on" + req.hostname);
 });
