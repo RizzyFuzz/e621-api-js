@@ -125,7 +125,7 @@ app.get("/api/all", async (req, res) => {
       msg: "No Artist/Tags Provided",
     });
   try {
-    let yiff = await thisE621(tags, "rizzlydev", apikey);
+    let yiff = await thisE621(tags, "rizzlydev", apikey, req);
     res.json({ yiff, status: 200, creator: "RizzyFuzz" });
   } catch (e) {
     console.log(e);
@@ -146,7 +146,7 @@ app.get("/api/random", async (req, res) => {
       msg: "No Artist/Tags Provided",
     });
   try {
-    let result = await thisE621(tags, "rizzlydev", apikey);
+    let result = await thisE621(tags, "rizzlydev", apikey, req);
     const yiff = result[Math.floor(Math.random() * result.length)];
     res.json({ yiff, status: 200, creator: "RizzyFuzz" });
   } catch (e) {
@@ -208,6 +208,6 @@ app.all("*", async (req, res) => {
 });
 
 //Configure App
-app.listen(PORT, (req) => {
-  console.log("Server running on " + req.get("host"));
+app.listen(PORT, () => {
+  console.log("Server running on port " + PORT);
 });
