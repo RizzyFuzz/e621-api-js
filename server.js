@@ -1,7 +1,7 @@
 const thisE621 = require("./lib/client.e621.js");
 const express = require("express");
 const logger = require("morgan");
-const yatim = require("body-parser");
+const body = require("body-parser");
 var cors = require("cors");
 const path = require("path");
 const chalk = require("chalk");
@@ -14,9 +14,9 @@ let {
   api_key: apikey,
   cookie: danbooruSession,
 } = JSON.parse(fs.readFileSync("./lib/config.json"));
-const PORT = 8000;
 
 const app = express();
+const PORT = 8000;
 app.use(logger("dev"));
 app.set("json spaces", 2);
 app.enable("trust proxy");
@@ -24,7 +24,7 @@ app.set("trust proxy", true);
 app.use(swaggerUi.serve);
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
-app.use(yatim.json({ type: "application/json" }));
+app.use(body.json({ type: "application/json" }));
 app.use(express.json());
 var corsOptions = {
   origin: "http://localhost:" + PORT,
@@ -77,8 +77,7 @@ app.use(
 app.use((req, res, next) => {
   res.locals.req = req;
   const REVERSE_PROXY = eval(true);
-
-  const ALLOW = ["e621.cyclic.app"];
+  const ALLOW = [req.hostname];
   if (REVERSE_PROXY && !ALLOW.includes(req.hostname))
     return res
       .status(403)
