@@ -77,8 +77,8 @@ app.use(
 app.use((req, res, next) => {
   res.locals.req = req;
   const REVERSE_PROXY = eval(true);
-  const ALLOW = [req.hostname];
-  if (REVERSE_PROXY && !ALLOW.includes(req.hostname))
+  const ALLOW = [req.get("host")];
+  if (REVERSE_PROXY && !ALLOW.includes(req.get("host")))
     return res
       .status(403)
       .send(`<center><h1>Sorry, Access Denied</h1></center>`);
