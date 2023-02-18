@@ -44,7 +44,11 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "example": "505"
+                  "example": 505
+                },
+                "creator": {
+                  "type": "string",
+                  "example": "RizzyFuzz"
                 },
                 "msg": {
                   "type": "string",
@@ -88,7 +92,11 @@
               "properties": {
                 "status": {
                   "type": "string",
-                  "example": "505"
+                  "example": 505
+                },
+                "creator": {
+                  "type": "string",
+                  "example": "RizzyFuzz"
                 },
                 "msg": {
                   "type": "string",
