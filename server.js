@@ -74,12 +74,11 @@ app.use(
   })
 );
 
-
 app.use((req, res, next) => {
   res.locals.req = req;
   const REVERSE_PROXY = eval(true);
 
-const ALLOW = ["e621.cyclic.app"];
+  const ALLOW = ["e621.cyclic.app"];
   if (REVERSE_PROXY && !ALLOW.includes(req.hostname))
     return res
       .status(403)
