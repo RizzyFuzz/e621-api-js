@@ -160,7 +160,7 @@ app.get("/api/random", async (req, res) => {
 });
 
 app.get("/api/getMedia", async (req, res) => {
-  letapp.get("/api/getMedia", async (req, res) => {
+  
   let url = req.query.url;
   if (!url)
     return res.status(424).json({
