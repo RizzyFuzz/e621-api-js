@@ -1,4 +1,5 @@
 const thisE621 = require("./lib/client.e621.js");
+const up = require("./lib/uploader.js");
 const express = require("express");
 const logger = require("morgan");
 const body = require("body-parser");
@@ -159,7 +160,7 @@ app.get("/api/random", async (req, res) => {
   }
 });
 
-app.get("/api/getMedia", (req, res) => {
+app.get("/api/getMedia", async(req, res) => {
   let url = req.query.url;
   if (!url)
     return res.status(424).json({
@@ -189,6 +190,8 @@ app.get("/api/getMedia", (req, res) => {
       console.log(header);
       res.contentType(header);
       res.send(response.data);
+      let getter = await up(response.data);
+      console.log(getter);
     })
     .catch((error) => {
       console.log(error);
