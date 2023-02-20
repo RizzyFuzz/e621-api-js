@@ -160,6 +160,7 @@ app.get("/api/random", async (req, res) => {
 });
 
 app.get("/api/getMedia", async (req, res) => {
+  letapp.get("/api/getMedia", async (req, res) => {
   let url = req.query.url;
   if (!url)
     return res.status(424).json({
@@ -179,25 +180,17 @@ app.get("/api/getMedia", async (req, res) => {
     Cookie: danbooruSession,
   };
 
-  axios
-    .get(url, {
-      headers: headers,
-      responseType: "arraybuffer",
-    })
-    .then((response) => {
-      let header = response.headers["content-type"];
-      console.log(header);
-      res.contentType(header);
-      res.send(response.data);
-      console.log(up(response.data));
-    })
-    .catch((error) => {
-      console.log(error);
-      res
-        .status(500)
-        .send({ msg: "An error occurred while loading the image" });
-    });
+  try {
+    const response = await axios.get(url, { headers });
+    let header = response.headers["content-type"];
+    res.contentType(header);
+    res.send(response.data);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ msg: "An error occurred while loading the image" });
+  }
 });
+
 
 //! Fallback Middleware
 app.all("*", async (req, res) => {
