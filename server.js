@@ -180,13 +180,11 @@ app.get("/api/getMedia", async (req, res) => {
   };
 
   try {
-    const response = await axios.get(url, {
-      headers,
-      responseType: "arraybuffer",
-    });
+    const response = await axios.get(url, { headers });
     let header = response.headers["content-type"];
     res.contentType(header);
     res.send(response.data);
+    console.log(response);
   } catch (error) {
     console.log(error);
     res.status(500).send({ msg: "An error occurred while loading the image" });
