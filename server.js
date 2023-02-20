@@ -1,5 +1,4 @@
 const thisE621 = require("./lib/client.e621.js");
-const up = require("./lib/uploader.js");
 const express = require("express");
 const logger = require("morgan");
 const body = require("body-parser");
