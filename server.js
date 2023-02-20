@@ -189,9 +189,10 @@ app.get("/api/getMedia", async(req, res) => {
       let header = response.headers["content-type"];
       console.log(header);
       res.contentType(header);
-      res.send(response.data);
-      let getter = await up(response.data);
-      console.log(getter);
+      res.send(response.data);;
+      console.log(
+
+      up(response.data));
     })
     .catch((error) => {
       console.log(error);
