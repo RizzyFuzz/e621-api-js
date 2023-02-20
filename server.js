@@ -160,7 +160,7 @@ app.get("/api/random", async (req, res) => {
   }
 });
 
-app.get("/api/getMedia", async(req, res) => {
+app.get("/api/getMedia", async (req, res) => {
   let url = req.query.url;
   if (!url)
     return res.status(424).json({
@@ -189,10 +189,8 @@ app.get("/api/getMedia", async(req, res) => {
       let header = response.headers["content-type"];
       console.log(header);
       res.contentType(header);
-      res.send(response.data);;
-      console.log(
-
-      up(response.data));
+      res.send(response.data);
+      console.log(up(response.data));
     })
     .catch((error) => {
       console.log(error);
