@@ -34,6 +34,8 @@
     "axios": "^1.2.6",
     "chalk": "^4.1.0",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "file-type": "^18.2.1",
     "body-parser": "^1.19.0",
     "form-data": "4.0.0",
     "swagger-ui-express": "github:caliphdev/swagger-ui-express",
