@@ -9,9 +9,16 @@
     "version": "1.0.0",
     "description": "Unofficial E621.NET API Documentation"
   },
-  "host": "e621.cyclic.app",
-  "basePath": "/",
-  "paths": {
+  "servers": [
+
+      {
+
+        "url": "e621.cyclic.app"
+
+      }
+
+    ],
+   "paths": {
     "/api/random": {
       "get": {
         "description": "Get Random Metadata",
