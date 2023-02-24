@@ -10,15 +10,11 @@
     "description": "Unofficial E621.NET API Documentation"
   },
   "servers": [
-
-      {
-
-        "url": "e621.cyclic.app"
-
-      }
-
-    ],
-   "paths": {
+    {
+      "url": "e621.cyclic.app"
+    }
+  ],
+  "paths": {
     "/api/random": {
       "get": {
         "description": "Get Random Metadata",
